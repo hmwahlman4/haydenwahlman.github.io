@@ -1,13 +1,41 @@
-/* Global Styling */
+/* Global Styles */
 body {
-    background-image: url('ggmoon.jpg'); /* Default background image for the whole page */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #fff; /* White text color for contrast */
+}
+
+/* Main Page Background (Green Moon) */
+body.main-page {
+    background-image: url('green-moon.jpg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    color: #003366; /* Dark blue text color */
-    font-family: Arial, sans-serif;
+    color: #003366; /* Dark blue text for readability */
     text-align: center;
-    margin: 0;
+    min-height: 100vh; /* Ensure the background covers the whole page */
+}
+
+/* Photos Page Background (Yellow Flowers) */
+body.photos-page {
+    background-image: url('yellow-flowers.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #003366; /* Dark blue text for readability */
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* Poetry Page Background (Blue Moon) */
+body.poetry-page {
+    background-image: url('blue-moon.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #003366; /* Dark blue text for readability */
+    text-align: center;
+    min-height: 100vh;
 }
 
 /* Header Styling */
@@ -27,83 +55,17 @@ header p {
     font-style: italic;
 }
 
-/* General Section Styling */
-section {
-    padding: 30px;
-}
-
-/* Styling for the Photos Section */
-.gallery-link-section {
-    background-image: url('BUTTERWEED-PURDUE-PHOTO-2.webp'); /* Custom background for Photos Section */
-    background-size: cover;
-    background-position: center center;
-    color: #fff; /* Text color in the photo section */
-}
-
-.gallery-link-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-/* Styling for the Poetry Section */
-.poetry-link-section {
-    background-image: url('bluemoon.jfif'); /* Custom background for Poetry Section */
-    background-size: cover;
-    background-position: center center;
-    color: #fff; /* Text color in the poetry section */
-}
-
-.poetry-link-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-/* Gallery Section */
-.gallery-section {
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.7); /* Light background for image section */
-}
-
-.gallery h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-/* Image Gallery Styling */
-.gallery {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.image-container {
-    border: 5px solid #003366; /* Dark blue border around each image */
-    border-radius: 10px;
-    padding: 10px;
-    width: 320px; /* Adjust width if needed */
-}
-
-.image-container img {
-    width: 100%;
-    border-radius: 5px; /* Rounded corners for images */
-    transition: transform 0.3s ease;
-}
-
-.image-container img:hover {
-    transform: scale(1.05); /* Slight zoom effect when hovering */
-}
-
-.image-container p {
-    font-size: 1.2em;
-    color: #003366;
-    margin-top: 10px;
-    text-align: center;
-}
-
-/* Back Link Styling */
-footer p a {
-    color: #003366;
-    font-size: 1.2em;
+/* Links Styling */
+a {
     text-decoration: none;
+    color: #003366;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    border: 2px solid #003366;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #003366;
+    color: #fff;
 }
