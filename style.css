@@ -1,0 +1,8 @@
+body {
+    background-image: url('moon.jpg'); /* Path to your moon image */
+    background-size: cover; /* Cover the entire page */
+    background-position: center center; /* Center the image */
+    background-attachment: fixed; /* Keep the background fixed */
+    color: white; /* White text for readability */
+    font-family: Arial, sans-serif; /* Optional: Set font */
+}
