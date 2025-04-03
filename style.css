@@ -5,7 +5,7 @@ body {
     color: #fff; /* White text color for contrast */
 }
 
-/* Main Page Background (Green Moon) */
+/* Main Page Background (Green Moon - ggmoon.jpg) */
 body.main-page {
     background-image: url('ggmoon.jpg');
     background-size: cover;
@@ -16,7 +16,7 @@ body.main-page {
     min-height: 100vh; /* Ensure the background covers the whole page */
 }
 
-/* Photos Page Background (Yellow Flowers) */
+/* Photos Page Background (Yellow Flowers - photophoto.png) */
 body.photos-page {
     background-image: url('photophoto.png');
     background-size: cover;
@@ -27,7 +27,7 @@ body.photos-page {
     min-height: 100vh;
 }
 
-/* Poetry Page Background (Blue Moon) */
+/* Poetry Page Background (Blue Moon - poetryphoto.png) */
 body.poetry-page {
     background-image: url('poetryphoto.png');
     background-size: cover;
