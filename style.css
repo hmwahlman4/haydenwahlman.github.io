@@ -1,9 +1,109 @@
+/* Global Styling */
 body {
-    background-image: url('ggmoon.jpg');
+    background-image: url('ggmoon.jpg'); /* Default background image for the whole page */
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    background-repeat: no-repeat;
-    color: #003366; /* Dark blue color for all text */
-    font-family: Arial, sans-serif; /* Optional: font for text */
+    color: #003366; /* Dark blue text color */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+/* Header Styling */
+header {
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+/* General Section Styling */
+section {
+    padding: 30px;
+}
+
+/* Styling for the Photos Section */
+.gallery-link-section {
+    background-image: url('BUTTERWEED-PURDUE-PHOTO-2'); /* Custom background for Photos Section */
+    background-size: cover;
+    background-position: center center;
+    color: #fff; /* Text color in the photo section */
+}
+
+.gallery-link-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Styling for the Poetry Section */
+.poetry-link-section {
+    background-image: url('bluemoon'); /* Custom background for Poetry Section */
+    background-size: cover;
+    background-position: center center;
+    color: #fff; /* Text color in the poetry section */
+}
+
+.poetry-link-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.7); /* Light background for image section */
+}
+
+.gallery h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Image Gallery Styling */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.image-container {
+    border: 5px solid #003366; /* Dark blue border around each image */
+    border-radius: 10px;
+    padding: 10px;
+    width: 320px; /* Adjust width if needed */
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 5px; /* Rounded corners for images */
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05); /* Slight zoom effect when hovering */
+}
+
+.image-container p {
+    font-size: 1.2em;
+    color: #003366;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Back Link Styling */
+footer p a {
+    color: #003366;
+    font-size: 1.2em;
+    text-decoration: none;
 }
