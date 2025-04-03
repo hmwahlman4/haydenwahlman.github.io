@@ -1,12 +1,9 @@
 body {
-    background-image: url('moon.jpg'); /* Path to the moon image */
-    background-size: cover; /* Make the image cover the entire screen */
-    background-position: center center; /* Center the image (if part of it is hidden, it’s cut evenly) */
-    background-attachment: fixed; /* Keep the image fixed in place when you scroll */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    color: #003366; /* White text for readability */
-    font-family: Arial, sans-serif; /* Optional font for the text */
+    background-image: url('moon.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #003366; /* Dark blue color for all text */
+    font-family: Arial, sans-serif; /* Optional: font for text */
 }
-
-
-
