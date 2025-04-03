@@ -18,7 +18,7 @@ body.main-page {
 
 /* Photos Page Background (Yellow Flowers) */
 body.photos-page {
-    background-image: url('yellow-flowers.jpg');
+    background-image: url('yellow-flowers.webp');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -29,7 +29,7 @@ body.photos-page {
 
 /* Poetry Page Background (Blue Moon) */
 body.poetry-page {
-    background-image: url('blue-moon.jpg');
+    background-image: url('blue-moon.jfif');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
