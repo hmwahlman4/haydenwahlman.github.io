@@ -1,10 +1,12 @@
 body {
-    background-image: url('moon.jpg');
-    background-size: contain; /* This ensures the whole image is visible */
-    background-position: center center;
-    background-attachment: fixed;
-    color: white;
-    font-family: Arial, sans-serif;
+    background-image: url('moon.jpg'); /* Path to the moon image */
+    background-size: cover; /* Make the image cover the entire screen */
+    background-position: center center; /* Center the image (if part of it is hidden, it’s cut evenly) */
+    background-attachment: fixed; /* Keep the image fixed in place when you scroll */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: white; /* White text for readability */
+    font-family: Arial, sans-serif; /* Optional font for the text */
 }
+
 
 
