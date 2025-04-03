@@ -1,9 +1,10 @@
 body {
     background-image: url('moon.jpg');
-    background-size: cover; /* This ensures the image covers the entire page */
-    background-position: center center; /* Keeps the image centered */
-    background-attachment: fixed; /* Keeps the image in place when you scroll */
+    background-size: contain; /* This ensures the whole image is visible */
+    background-position: center center;
+    background-attachment: fixed;
     color: white;
     font-family: Arial, sans-serif;
 }
+
 
