@@ -4,7 +4,7 @@ body {
     background-position: center center; /* Center the image (if part of it is hidden, it’s cut evenly) */
     background-attachment: fixed; /* Keep the image fixed in place when you scroll */
     background-repeat: no-repeat; /* Prevent the image from repeating */
-    color: white; /* White text for readability */
+    color: #003366; /* White text for readability */
     font-family: Arial, sans-serif; /* Optional font for the text */
 }
 
