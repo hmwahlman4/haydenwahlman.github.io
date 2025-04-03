@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS -->
+    <title>In Honor of Grace Abigail</title>
 </head>
 <body>
-    <h1>In Honor of Grace Abigail</h1>
-    <p>Welcome to her space</p>
-
-    <h2>Pictures of My Sister</h2>
+    <!-- Header Section -->
+    <header>
+        <h1>In Honor of Grace Abigail</h1>
+        <p>Welcome to her space</p>
+    </header>
     
-    <!-- Image 1 -->
-    <img src="photos/UFCJ7146.jpg" alt="Sister Picture 1" width="300">
-    
-    <!-- Image 2 -->
-    <img src="photos/MHXW4388.jpg" alt="Sister Picture 2" width="300">
-    
-    
-    
+    <!-- Pictures Section -->
+    <section class="gallery-section">
+        <h2>Pictures of My Sister</h2>
+        
+        <!-- Image Gallery -->
+        <div class="gallery">
+            <div class="image-container">
+                <!-- Update path to the "photos" folder -->
+                <img src="photos/MHXW4388.jpg" alt="Sister Picture 1" width="300">
+                <p>Sister Picture 1</p>
+            </div>
+            <div class="image-container">
+                <!-- Update path to the "photos" folder -->
+                <img src="photos/UFCJ7146.jpg" alt="Sister Picture 2" width="300">
+                <p>Sister Picture 2</p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
