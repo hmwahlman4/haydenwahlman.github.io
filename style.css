@@ -5,6 +5,16 @@ body {
     color: #fff; /* White text color for contrast */
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+
+
+
 /* Main Page Background (Green Moon - ggmoon.jpg) */
 body.main-page {
     background-image: url('ggmoon.jpg');
