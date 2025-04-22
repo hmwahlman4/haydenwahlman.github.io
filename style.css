@@ -1,15 +1,11 @@
 /* Global Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    color: #fff; /* White text color for contrast */
+
+header {
+    padding: 0; /* Or adjust to smaller values, e.g., 10px */
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
 
 
 
