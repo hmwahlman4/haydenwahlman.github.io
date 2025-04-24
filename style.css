@@ -4,7 +4,7 @@ header {
     padding: 2px 0; /* Adjust padding for vertical space around the text */
     background: none; /* No background color (so the image can show through) */
     box-shadow: none; /* Removes the shadow */
-    color: #003366;; /* White text for contrast */
+    color: red; /* White text for contrast */
     text-align: center; /* Centers the text */
 }
 
@@ -67,6 +67,7 @@ a {
     padding: 10px 20px;
     border: 2px solid #003366;
     border-radius: 5px;
+    background-color: #003366;
 }
 
 a:hover {
