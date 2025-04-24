@@ -1,11 +1,11 @@
 /* Global Styles */
 
 header {
-    padding: 0;
-    background-color: transparent;
-    box-shadow: none;
-    color: #fff; /* or whatever looks good on your background */
-    text-align: center;
+    padding: 50px 0; /* Adjust padding for vertical space around the text */
+    background: none; /* No background color (so the image can show through) */
+    box-shadow: none; /* Removes the shadow */
+    color: #fff; /* White text for contrast */
+    text-align: center; /* Centers the text */
 }
 
 
