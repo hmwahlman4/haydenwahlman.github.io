@@ -4,7 +4,7 @@ header {
     padding: 2px 0; /* Adjust padding for vertical space around the text */
     background: none; /* No background color (so the image can show through) */
     box-shadow: none; /* Removes the shadow */
-    color: red; /* White text for contrast */
+    color:  #003366; /* White text for contrast */
     text-align: center; /* Centers the text */
 }
 
@@ -62,7 +62,7 @@ header p {
 /* Links Styling */
 a {
     text-decoration: none;
-    color: #003366;
+    color: #fff;
     font-size: 1.5em;
     padding: 10px 20px;
     border: 2px solid #003366;
