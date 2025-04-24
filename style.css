@@ -47,11 +47,7 @@ body.poetry-page {
 }
 
 /* Header Styling */
-header {
-    padding: 50px;
-    background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+
 
 header h1 {
     font-size: 3em;
