@@ -81,8 +81,6 @@ a {
     background-color: #003366;     /* Background color */
     margin-bottom: 40px;           /* Add space between links */
     display: block;                /* Force links to be block-level (stack vertically) */
-    max-width: 400px;
-    width: 50%;                    /* Optional: Set a fixed width for the links */
     text-align: center;            /* Center the text inside the link */
     margin-left: auto;             /* Center the link horizontally */
     margin-right: auto;            /* Center the link horizontally */
