@@ -75,7 +75,7 @@ a {
     text-decoration: none;         /* Remove underline from the links */
     color: #fff;                   /* White text */
     font-size: 1.0em;              /* Text size */
-    padding: 5px 5px;            /* Padding to make the link larger */
+    padding: 5px 15px;            /* Padding to make the link larger */
     border: 8px solid #003366;     /* Border color */
     border-radius: 5px;            /* Rounded corners */
     background-color: #003366;     /* Background color */
