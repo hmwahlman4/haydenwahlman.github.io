@@ -82,7 +82,7 @@ a {
     margin-bottom: 50px;           /* Add space between links */
     display: block;                /* Force links to be block-level (stack vertically) */
     width: 80%;                    /* Optional: Set a fixed width for the links */
-    text-align: right;            /* Center the text inside the link */
+    text-align: center;            /* Center the text inside the link */
 }
 
 a:hover {
