@@ -78,7 +78,7 @@ a {
     border: 2px solid #003366;
     border-radius: 5px;
     background-color: #003366;
-    margin-bottom: 30px; /* Increase this value for more space between links */
+    margin-bottom: 100px; /* Increase this value for more space between links */
 }
 
 a:hover {
