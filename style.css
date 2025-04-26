@@ -73,7 +73,7 @@ header p {
 
 a {
     text-decoration: none;         /* Remove underline from the links */
-    color: #red;                   /* White text */
+    color: #fff;                   /* White text */
     font-size: 1.0em;              /* Text size */
     padding: 5px 5px;            /* Padding to make the link larger */
     border: 8px solid #003366;     /* Border color */
@@ -81,7 +81,7 @@ a {
     background-color: #003366;     /* Background color */
     margin-bottom: 50px;           /* Add space between links */
     display: block;                /* Force links to be block-level (stack vertically) */
-    width: 80%;                    /* Optional: Set a fixed width for the links */
+    width: 20%;                    /* Optional: Set a fixed width for the links */
     text-align: center;            /* Center the text inside the link */
 }
 
