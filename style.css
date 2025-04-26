@@ -1,14 +1,11 @@
 /* Global Styles */
-
 header {
     padding: 2px 0; /* Adjust padding for vertical space around the text */
     background: none; /* No background color (so the image can show through) */
     box-shadow: none; /* Removes the shadow */
-    color:  #fff; /* White text for contrast */
+    color: #fff; /* White text for contrast */
     text-align: center; /* Centers the text */
 }
-
-
 
 /* Make all album photos the same size and nicely cropped */
 section div img {
@@ -19,19 +16,15 @@ section div img {
   border-radius: 8px;
 }
 
-
-
-
-
 /* Main Page Background (Green Moon - ggmoon.jpg) */
 body.main-page {
     background-image: url('gggmoon.jpg.jpg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    color: #fff; /* Dark blue text for readability */
+    color: #fff;
     text-align: center;
-    min-height: 100vh; /* Ensure the background covers the whole page */
+    min-height: 100vh;
 }
 
 /* Photos Page Background (Yellow Flowers - photophoto.png) */
@@ -40,7 +33,7 @@ body.photos-page {
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    color: #003366; /* Dark blue text for readability */
+    color: #003366;
     text-align: center;
     min-height: 100vh;
 }
@@ -51,14 +44,12 @@ body.poetry-page {
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    color: #fff; /* Dark blue text for readability */
+    color: #fff;
     text-align: center;
     min-height: 100vh;
 }
 
 /* Header Styling */
-
-
 header h1 {
     font-size: 3em;
     margin-bottom: 30px;
@@ -69,24 +60,30 @@ header p {
     font-style: italic;
 }
 
-/* Links Styling */
+/* Centering links (buttons) and reducing size */
+section, div {
+    display: flex;
+    justify-content: center;  /* Horizontally center content */
+    align-items: center;      /* Vertically center content */
+    flex-direction: column;   /* Stack buttons vertically */
+    height: 100vh;            /* Full screen height */
+}
 
 a {
-    text-decoration: none;         /* Remove underline from the links */
-    color: #fff;                   /* White text */
-    font-size: 1.5em;              /* Text size */
-    padding: 20px 20px;            /* Padding to make the link larger */
-    border: 8px solid #003366;     /* Border color */
-    border-radius: 5px;            /* Rounded corners */
-    background-color: #003366;     /* Background color */
-    margin-bottom: 50px;           /* Add space between links */
-    display: block;                /* Force links to be block-level (stack vertically) */
-    width: 80%;                    /* Optional: Set a fixed width for the links */
-    text-align: center;            /* Center the text inside the link */
+    text-decoration: none;        /* Remove underline from the links */
+    color: #fff;                  /* White text */
+    font-size: 1.2em;             /* Slightly smaller font size */
+    padding: 15px 30px;           /* Adjust padding for a more appropriate size */
+    border: 4px solid #003366;    /* Border color */
+    border-radius: 8px;           /* Rounded corners */
+    background-color: #003366;    /* Background color */
+    margin: 10px 0;               /* Add vertical space between buttons */
+    display: inline-block;        /* Keep the button inline but block-like */
+    width: auto;                  /* Let the button resize based on text */
+    text-align: center;           /* Center the text inside the link */
 }
 
 a:hover {
-    background-color: #003366;     /* Hover background color */
-    color: #fff;                   /* Keep text white on hover */
+    background-color: #005f80;    /* Hover background color */
+    color: #fff;                  /* Keep text white on hover */
 }
-
