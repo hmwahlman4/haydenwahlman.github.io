@@ -83,6 +83,8 @@ a {
     display: block;                /* Force links to be block-level (stack vertically) */
     width: 20%;                    /* Optional: Set a fixed width for the links */
     text-align: center;            /* Center the text inside the link */
+    margin-left: auto;             /* Center the link horizontally */
+    margin-right: auto;            /* Center the link horizontally */
 }
 
 a:hover {
