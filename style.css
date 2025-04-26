@@ -70,18 +70,23 @@ header p {
 }
 
 /* Links Styling */
+
 a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.5em;
-    padding: 10px 10px;
-    border: 8px solid #003366;
-    border-radius: 5px;
-    background-color: #003366;
-    margin-bottom: 100px; /* Increase this value for more space between links */
+    text-decoration: none;         /* Remove underline from the links */
+    color: #fff;                   /* White text */
+    font-size: 1.5em;              /* Text size */
+    padding: 20px 20px;            /* Padding to make the link larger */
+    border: 8px solid #003366;     /* Border color */
+    border-radius: 5px;            /* Rounded corners */
+    background-color: #003366;     /* Background color */
+    margin-bottom: 50px;           /* Add space between links */
+    display: block;                /* Force links to be block-level (stack vertically) */
+    width: 80%;                    /* Optional: Set a fixed width for the links */
+    text-align: center;            /* Center the text inside the link */
 }
 
 a:hover {
-    background-color: #003366;
-    color: #fff;
+    background-color: #003366;     /* Hover background color */
+    color: #fff;                   /* Keep text white on hover */
 }
+
