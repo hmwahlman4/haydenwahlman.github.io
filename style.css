@@ -33,8 +33,8 @@ a {
             border-radius: 5px;
         }
 
-/* a {
-/*    text-decoration: none;         /* Remove underline from the links */
+ a {
+    text-decoration: none;         /* Remove underline from the links */
    /*  color: #fff;                   /* White text */
    /*  font-size: 1.0em;              /* Text size */
  /*   padding: 2px 5px;            /* Padding to make the link larger */
