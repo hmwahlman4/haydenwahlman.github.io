@@ -3,6 +3,6 @@ comments:
   requiredFields: ["name", "message"]
   branch: main
   path: "_data/comments"
-  filename: "comment-{@timestamp}"
+  filename: "comment-{@timestamp}.json"
   format: "json"
   moderation: false
