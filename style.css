@@ -53,7 +53,7 @@ body.main-page {
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    color: #fff; /* Dark blue text for readability */
+    color: red; /* Dark blue text for readability */
     text-align: center;
     min-height: 100vh; /* Ensure the background covers the whole page */
 }
