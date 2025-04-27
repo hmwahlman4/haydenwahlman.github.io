@@ -4,7 +4,7 @@ header {
     padding: 2px 0; /* Adjust padding for vertical space around the text */
     background: none; /* No background color (so the image can show through) */
     box-shadow: none; /* Removes the shadow */
-    color:  red; /* White text for contrast */
+    color:  #fff; /* White text for contrast */
     text-align: center; /* Centers the text */
 }
 
