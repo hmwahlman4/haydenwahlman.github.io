@@ -37,19 +37,30 @@
         <!-- Comments will appear here -->
     </ul>
 
+    <!-- Your comments fetching script -->
     <script>
-        // Fetch comments using Staticman or your local _data/comments
+        // Fetch comments from _data/comments.json
         fetch('/_data/comments.json')
-        .then(response => response.json())
-        .then(comments => {
-            const commentsList = document.getElementById("commentsList");
-            comments.forEach(comment => {
-                const commentItem = document.createElement("li");
-                commentItem.innerHTML = `<strong>${comment.name}</strong> (${comment.email}) said: <p>${comment.message}</p>`;
-                commentsList.appendChild(commentItem);
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(comments => {
+                const commentsList = document.getElementById('commentsList');
+                comments.forEach(comment => {
+                    const commentItem = document.createElement('li');
+                    commentItem.innerHTML = `
+                        <strong>${comment.name}</strong> (${comment.email}) said:
+                        <p>${comment.message}</p>
+                    `;
+                    commentsList.appendChild(commentItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching comments:', error);
             });
-        })
-        .catch(error => console.error('Error fetching comments:', error));
     </script>
 
 </body>
