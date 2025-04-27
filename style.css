@@ -35,6 +35,8 @@ a {
 
  a {
     text-decoration: none;         /* Remove underline from the links */
+     color: Red;
+     display: block;
    /*  color: #fff;                   /* White text */
    /*  font-size: 1.0em;              /* Text size */
  /*   padding: 2px 5px;            /* Padding to make the link larger */
@@ -43,7 +45,7 @@ a {
 /*    border-radius: 1px;            /* Rounded corners */ */
 /*     background-color: #003366;     /* Background color */
  /*    margin-bottom: 40px;           /* Add space between links */
-     display: block;                /* Force links to be block-level (stack vertically) */
+/*     display: block;                /* Force links to be block-level (stack vertically) */
  /*    text-align: center;            /* Center the text inside the link */
 /*    margin-left: auto;             /* Center the link horizontally */ */
 /*    margin-right: auto;            /* Center the link horizontally */   */
