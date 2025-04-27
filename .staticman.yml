@@ -1,11 +1,7 @@
+# .staticman.yml
 comments:
   type: file
-  path: _data/comments
-  name: comment-{@timestamp}.json
-  format: json
-  fields:
-    - name
-    - message
-  required:
-    - name
-    - message
+  path: "_data/comments"
+  name: "comment-{@timestamp}.json"
+  branch: "main"
+  message: "Add a comment"
