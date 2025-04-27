@@ -25,17 +25,17 @@ header p {
 /* Links Styling */
 
 a {
-            display: inline-block;
+            display: block;
             margin-top: 30px;
             background-color: #003366;
-            color: red;
+            color: #fff;
             border-radius: 0px;
      /*   padding: 10px 20px; 
         }
 
  a {
     text-decoration: none;         /* Remove underline from the links */
-     color: Red;
+ /*    color: Red;
   /*   display: block;
    /*  color: #fff;                   /* White text */
    /*  font-size: 1.0em;              /* Text size */
