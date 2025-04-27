@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comments Page</title>
+    <title>Comments</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="main-page">
+<body class="comments-page">
+
     <header>
         <h1>Leave a Comment</h1>
         <p>We'd love to hear from you!</p>
@@ -15,29 +16,86 @@
     <!-- Comment Form Section -->
     <section>
         <h2>Submit Your Comment</h2>
-        <form action="https://api.staticman.net/v2/entry/github/hmwahlman4/haydenwahlman.github.io/main/comments" method="POST">
-            <label for="name">Name:</label><br>
+        <form action="https://api.staticman.net/v2/entry/github/yourusername/yourrepository/main/comments" method="POST">
+            <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
 
-
-            <label for="message">Message:</label><br>
+            <label for="message">Message:</label>
             <textarea id="message" name="message" required></textarea><br><br>
 
             <input type="submit" value="Submit Comment">
         </form>
+
+        <div id="errorMessage" style="display:none; color: red;">
+            Something went wrong! Please try again later.
+        </div>
     </section>
 
     <!-- Display Submitted Comments -->
     <section>
         <h2>What Others Have Said</h2>
-        <ul>
-            {% for comment in site.data.comments %}
-                <li style="margin-bottom: 20px;">
-                    <strong>{{ comment.name }}</strong> said:<br>
-                    <em>{{ comment.message }}</em>
-                </li>
-            {% endfor %}
+        <ul id="commentsList">
+            <!-- Comments will appear here -->
         </ul>
     </section>
+
+    <script>
+        // Fetch comments from _data/comments.json
+        fetch('/_data/comments.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(comments => {
+            const commentsList = document.getElementById('commentsList');
+            comments.forEach(comment => {
+                const commentItem = document.createElement('li');
+                commentItem.innerHTML = `
+                    <strong>${comment.name}</strong> said:
+                    <p>${comment.message}</p>
+                `;
+                commentsList.appendChild(commentItem);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching comments:', error);
+        });
+
+        // Handle the form submission
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            const data = {
+                name: name,
+                message: message
+            };
+
+            fetch('https://api.staticman.net/v2/entry/github/yourusername/yourrepository/main/comments', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error submitting comment');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert('Comment submitted successfully!');
+                window.location.reload();  // Optionally reload to show the new comment
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('errorMessage').style.display = 'block';
+            });
+        });
+    </script>
+
 </body>
 </html>
