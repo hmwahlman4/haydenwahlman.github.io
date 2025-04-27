@@ -3,43 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tribute</title>
+    <title>Comments</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="main-page">
+<body class="comments-page">
     <header>
-        <h1>In Honor of My Best Friend</h1>
-        <p>Welcome to her space</p>
+        <h1>Comments</h1>
+        <p>We'd love to hear your thoughts!</p>
     </header>
 
+    <!-- Comment Form Section -->
     <section>
-        <a href="photo-album.html">Click here for her Photos</a><br>
-        <a href="poetry.html">Click here to read her Poetry</a><br>
-        <a href="comments.html">Click here to see the Comments</a>
+        <h2>Submit Your Comment</h2>
+        <form action="https://api.staticman.net/v2/entry/github/hmwahlman4/haydenwahlman.github.io/main/comments" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" required></textarea><br><br>
+
+            <input type="submit" value="Submit Comment">
+        </form>
     </section>
 
-    <h2>Leave a Comment</h2>
-    <form action="https://api.staticman.net/v2/entry/github/hmwahlman4/haydenwahlman.github.io/main/comments" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+    <!-- Display Submitted Comments -->
+    <section>
+        <h2>What Others Have Said</h2>
+        <ul id="commentsList">
+            <!-- Comments will appear here -->
+        </ul>
+    </section>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea><br><br>
-
-        <input type="submit" value="Submit Comment">
-    </form>
-
-    <h2>Comments</h2>
-    <ul id="commentsList">
-        <!-- Comments will appear here -->
-    </ul>
-
-    <!-- Your comments fetching script -->
+    <!-- JavaScript to Fetch and Display Comments -->
     <script>
-        // Fetch comments from _data/comments.json
+        // Fetch comments from _data/comments.json (or wherever they are stored)
         fetch('/_data/comments.json')
             .then(response => {
                 if (!response.ok) {
@@ -52,7 +49,7 @@
                 comments.forEach(comment => {
                     const commentItem = document.createElement('li');
                     commentItem.innerHTML = `
-                        <strong>${comment.name}</strong> (${comment.email}) said:
+                        <strong>${comment.name}</strong> said:
                         <p>${comment.message}</p>
                     `;
                     commentsList.appendChild(commentItem);
