@@ -1,0 +1,8 @@
+comments:
+  allowedFields: ["name", "email", "message"]
+  requiredFields: ["name", "message"]
+  branch: main
+  path: "_data/comments"
+  filename: "comment-{@timestamp}"
+  format: "json"
+  moderation: false
