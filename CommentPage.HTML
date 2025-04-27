@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Comments</h1>
+        <p>Leave a comment or see the ones others have left!</p>
+    </header>
+
+    <!-- Comment Form -->
+    <h2>Leave a Comment</h2>
+    <form id="commentForm">
+        <input type="text" id="name" placeholder="Your Name" required><br><br>
+        <textarea id="message" placeholder="Your Comment" required></textarea><br><br>
+        <input type="submit" value="Submit Comment">
+    </form>
+
+    <h2>Previous Comments:</h2>
+    <div id="commentsList">
+        <!-- Comments will appear here -->
+    </div>
+
+    <script>
+        // Function to retrieve and display comments
+        function loadComments() {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            const commentsList = document.getElementById("commentsList");
+
+            // Clear previous comments
+            commentsList.innerHTML = "";
+
+            // Loop through the comments and display them
+            comments.forEach(comment => {
+                const commentDiv = document.createElement("div");
+                commentDiv.classList.add("comment-item");
+                commentDiv.innerHTML = `
+                    <strong>${comment.name}</strong> says:
+                    <p>${comment.message}</p>
+                `;
+                commentsList.appendChild(commentDiv);
+            });
+        }
+
+        // Add event listener for the form submission
+        document.getElementById("commentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const message = document.getElementById("message").value;
+
+            const newComment = {
+                name: name,
+                message: message,
+            };
+
+            // Retrieve existing comments from localStorage
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+            // Add the new comment
+            comments.push(newComment);
+
+            // Save the updated comments back to localStorage
+            localStorage.setItem("comments", JSON.stringify(comments));
+
+            // Clear the form fields
+            document.getElementById("name").value = "";
+            document.getElementById("message").value = "";
+
+            // Reload the comments list
+            loadComments();
+        });
+
+        // Load comments when the page loads
+        window.onload = loadComments;
+    </script>
+
+</body>
+</html>
