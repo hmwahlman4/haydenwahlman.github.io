@@ -8,17 +8,41 @@ header {
     text-align: center; /* Centers the text */
 }
 
+/* Header Styling */
 
 
-/* Make all album photos the same size and nicely cropped */
-section div img {
-  width: 400px;
-  height: 400px;
-  object-fit: cover;
-  margin: 10px;
-  border-radius: 8px;
+header h1 {
+    font-size: 3em;
+    margin-bottom: 60px;
 }
 
+header p {
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+
+/* Links Styling */
+
+a {
+    text-decoration: none;         /* Remove underline from the links */
+    color: #fff;                   /* White text */
+    font-size: 1.0em;              /* Text size */
+    padding: 2px 5px;            /* Padding to make the link larger */
+    border: 8px solid #003366;     /* Border color */
+    border-radius: 5px;            /* Rounded corners */
+    background-color: #003366;     /* Background color */
+    margin-bottom: 40px;           /* Add space between links */
+    display: block;                /* Force links to be block-level (stack vertically) */
+    text-align: center;            /* Center the text inside the link */
+    margin-left: auto;             /* Center the link horizontally */
+    margin-right: auto;            /* Center the link horizontally */
+}
+
+a:hover {
+    background-color: #003366;     /* Hover background color */
+    color: #fff;                   /* Keep text white on hover */
+}
 
 
 
@@ -33,6 +57,17 @@ body.main-page {
     text-align: center;
     min-height: 100vh; /* Ensure the background covers the whole page */
 }
+
+
+/* Make all album photos the same size and nicely cropped */
+section div img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  margin: 10px;
+  border-radius: 8px;
+}
+
 
 /* Photos Page Background (Yellow Flowers - photophoto.png) */
 body.photos-page {
@@ -56,38 +91,6 @@ body.poetry-page {
     min-height: 100vh;
 }
 
-/* Header Styling */
 
 
-header h1 {
-    font-size: 3em;
-    margin-bottom: 60px;
-}
-
-header p {
-    font-size: 1.5em;
-    font-style: italic;
-}
-
-/* Links Styling */
-
-a {
-    text-decoration: none;         /* Remove underline from the links */
-    color: #fff;                   /* White text */
-    font-size: 1.0em;              /* Text size */
-    padding: 2px 5px;            /* Padding to make the link larger */
-    border: 8px solid #003366;     /* Border color */
-    border-radius: 5px;            /* Rounded corners */
-    background-color: #003366;     /* Background color */
-    margin-bottom: 40px;           /* Add space between links */
-    display: block;                /* Force links to be block-level (stack vertically) */
-    text-align: center;            /* Center the text inside the link */
-    margin-left: auto;             /* Center the link horizontally */
-    margin-right: auto;            /* Center the link horizontally */
-}
-
-a:hover {
-    background-color: #003366;     /* Hover background color */
-    color: #fff;                   /* Keep text white on hover */
-}
 
