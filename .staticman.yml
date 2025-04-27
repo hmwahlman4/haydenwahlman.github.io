@@ -1,6 +1,6 @@
 comments:
-  allowedFields: ["name", "email", "message"]
-  requiredFields: ["name", "message"]
+  allowedFields: ["name", "message"]
+  requiredFields: ["message"]
   branch: main
   path: "_data/comments"
   filename: "comment-{@timestamp}.json"
