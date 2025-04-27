@@ -44,6 +44,15 @@
     <input type="submit" value="Submit Comment">
 </form>
 
+<h2>Comments</h2>
+<ul>
+  {% for comment in site.data.comments %}
+    <li>
+      <strong>{{ comment.name }}</strong> ({{ comment.email }}) said:
+      <p>{{ comment.message }}</p>
+    </li>
+  {% endfor %}
+</ul>
 
 
 
