@@ -36,7 +36,7 @@ a {
  a {
     text-decoration: none;         /* Remove underline from the links */
      color: Red;
-     display: block;
+  /*   display: block;
    /*  color: #fff;                   /* White text */
    /*  font-size: 1.0em;              /* Text size */
  /*   padding: 2px 5px;            /* Padding to make the link larger */
