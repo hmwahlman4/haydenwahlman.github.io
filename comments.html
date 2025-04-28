@@ -9,20 +9,19 @@
 <body>
     <header>
         <h1>Leave a Comment</h1>
-        <p>We'd lov!</p>
+        <p>We'd love to hear your thoughts!</p>
     </header>
 
     <section>
         <h2>Submit Your Comment</h2>
-        <form action="https://api.staticman.net/v2/entry/github/hmwahlman4/haydenwahlman.github.io/main/comments" method="POST">
-
+        <form id="commentForm">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
+            <input type="text" id="name" name="fields[name]" required><br><br>
 
             <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea><br><br>
+            <textarea id="message" name="fields[message]" required></textarea><br><br>
 
-            <input type="submit" value="Submit Comment">
+            <button type="submit">Submit Comment</button>
         </form>
 
         <div id="errorMessage" style="display:none; color: red;">
@@ -36,16 +35,53 @@
     </section>
 
     <script>
-        // Fetch and display comments from your repository (replace with your correct path)
-        fetch('https://raw.githubusercontent.com/hmwahlman4/haydenwahlman.github.io/main/_data/comments.json') 
+        // Handle form submission using JavaScript
+        document.getElementById("commentForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
+            // Staticman API URL for your repository
+            const apiUrl = 'https://api.staticman.net/v2/entry/github/hmwahlman4/haydenwahlman.github.io/main/comments';
+
+            // Fetch request to Staticman API
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    fields: formObject
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.errors) {
+                    document.getElementById('errorMessage').style.display = 'block';
+                } else {
+                    alert('Comment submitted successfully!');
+                }
+            })
+            .catch(error => {
+                document.getElementById('errorMessage').style.display = 'block';
+                console.error('Error:', error);
+            });
+        });
+
+        // Fetch and display comments from your repository
+        fetch('https://raw.githubusercontent.com/hmwahlman4/haydenwahlman.github.io/main/_data/comments.json')
         .then(response => response.json())
         .then(comments => {
             const commentsList = document.getElementById("commentsList");
             comments.forEach(comment => {
                 const commentItem = document.createElement("li");
                 commentItem.innerHTML = `
-                    <strong>${comment.name}</strong> said:
-                    <p>${comment.message}</p>
+                    <strong>${comment.fields.name}</strong> said:
+                    <p>${comment.fields.message}</p>
                 `;
                 commentsList.appendChild(commentItem);
             });
