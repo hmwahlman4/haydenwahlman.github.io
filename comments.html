@@ -1,95 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comments</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leave a Comment</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    input, textarea { width: 100%; padding: 0.5rem; margin-top: 0.5rem; }
+    button { padding: 0.6rem 1.2rem; margin-top: 1rem; }
+    li { margin-bottom: 1.5rem; }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Leave a Comment</h1>
-        <p>We'd love to hear your thoughts!</p>
-    </header>
 
-    <section>
-        <h2>Submit Your Comment</h2>
-        <form id="commentForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="fields[name]" required><br><br>
+  <h1>Leave a Comment</h1>
+  <form id="commentForm">
+    <label for="name">Name:</label>
+    <input type="text" name="fields[name]" id="name" required />
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="fields[message]" required></textarea><br><br>
+    <label for="message">Message:</label>
+    <textarea name="fields[message]" id="message" required></textarea>
 
-            <button type="submit">Submit Comment</button>
-        </form>
+    <button type="submit">Submit</button>
+  </form>
 
-        <div id="errorMessage" style="display:none; color: red;">
-            Something went wrong! Please try again later.
-        </div>
+  <div id="status" style="margin-top: 1rem; color: green;"></div>
+  <div id="error" style="margin-top: 1rem; color: red;"></div>
 
-        <h2>What Others Have Said</h2>
-        <ul id="commentsList">
-            <!-- Comments will appear here dynamically -->
-        </ul>
-    </section>
+  <h2>Previous Comments</h2>
+  <ul id="commentsList"></ul>
 
-    <script>
-        // Handle form submission using JavaScript
-        document.getElementById("commentForm").addEventListener("submit", function(e) {
-            e.preventDefault();
+  <script>
+    const form = document.getElementById("commentForm");
+    const statusDiv = document.getElementById("status");
+    const errorDiv = document.getElementById("error");
 
-            const formData = new FormData(e.target);
-            const formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
-            });
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      statusDiv.textContent = "";
+      errorDiv.textContent = "";
 
-            // Staticman API URL for your repository
-            const apiUrl = 'https://api.staticman.net/v2/entry/github/hmwahlman4/haydenwahlman.github.io/main/comments';
+      const formData = new FormData(form);
+      const fields = {};
+      formData.forEach((val, key) => { fields[key] = val; });
 
-            // Fetch request to Staticman API
-            fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    fields: formObject
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.errors) {
-                    document.getElementById('errorMessage').style.display = 'block';
-                } else {
-                    alert('Comment submitted successfully!');
-                }
-            })
-            .catch(error => {
-                document.getElementById('errorMessage').style.display = 'block';
-                console.error('Error:', error);
-            });
-        });
-
-        // Fetch and display comments from your repository
-        fetch('https://raw.githubusercontent.com/hmwahlman4/haydenwahlman.github.io/main/_data/comments.json')
-        .then(response => response.json())
-        .then(comments => {
-            const commentsList = document.getElementById("commentsList");
-            comments.forEach(comment => {
-                const commentItem = document.createElement("li");
-                commentItem.innerHTML = `
-                    <strong>${comment.fields.name}</strong> said:
-                    <p>${comment.fields.message}</p>
-                `;
-                commentsList.appendChild(commentItem);
-            });
+      fetch("https://gracewahlman-staticman.herokuapp.com/v3/entry/github/hmwahlman4/haydenwahlman.github.io/main/comments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fields })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success || !data.errors) {
+            statusDiv.textContent = "Thank you! Your comment has been submitted.";
+            form.reset();
+          } else {
+            errorDiv.textContent = "Error submitting comment.";
+            console.error(data);
+          }
         })
-        .catch(error => {
-            console.error('Error fetching comments:', error);
+        .catch(err => {
+          errorDiv.textContent = "Network or server error.";
+          console.error(err);
         });
-    </script>
+    });
+
+    // Load comments from _data/comments/
+    fetch("https://hmwahlman4.github.io/_data/comments/")
+      .then(res => res.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const links = [...doc.querySelectorAll("a")].filter(a => a.href.endsWith(".json"));
+
+        links.forEach(link => {
+          fetch(link.href)
+            .then(res => res.json())
+            .then(comment => {
+              const li = document.createElement("li");
+              li.innerHTML = `<strong>${comment.name || "Anonymous"}:</strong><br>${comment.message}`;
+              document.getElementById("commentsList").appendChild(li);
+            });
+        });
+      })
+      .catch(err => console.error("Couldn't load comments:", err));
+  </script>
 
 </body>
 </html>
