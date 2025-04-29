@@ -7,9 +7,9 @@ comments:
   moderation: false
 
   generatedFields:
-    date:
+    timestamp:
       type: date
       options:
-        format: "timestamp"  # this generates the timestamp you want
+        format: timestamp
 
-  filename: "comment-{@date}"
+  filename: "comment-{@timestamp}"
