@@ -3,6 +3,13 @@ comments:
   requiredFields: ["name", "message"]
   branch: "main"
   path: "_data/comments"
-  filename: "comment-{@timestamp}"
   format: "json"
-  message: "Add a comment"
+  moderation: false
+
+  generatedFields:
+    date:
+      type: date
+      options:
+        format: "timestamp"  # this generates the timestamp you want
+
+  filename: "comment-{@date}"
