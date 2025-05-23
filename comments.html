@@ -66,7 +66,7 @@
     });
 
     // Load comments from _data/comments/
-    fetch('https://gracewahlman-staticman.herokuapp.com/v3/entry/github/hmwahlman4/haydenwahlman.github.io/main/comments')
+    fetch('https://hmwahlman4.github.io/_data/comments/')
       .then(res => res.text())
       .then(html => {
         const parser = new DOMParser();
