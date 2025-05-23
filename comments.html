@@ -44,7 +44,7 @@
       const fields = {};
       formData.forEach((val, key) => { fields[key] = val; });
 
-      fetch("https://gracewahlman-staticman.herokuapp.com/v3/entry/github/hmwahlman4/haydenwahlman.github.io/main/comments", {
+      fetch("https://hmwahlman4.github.io/_data/comments/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ fields })
