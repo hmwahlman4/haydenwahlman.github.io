@@ -64,26 +64,23 @@
           console.error(err);
         });
     });
-
-    // Load comments from _data/comments/
-    fetch('https://hmwahlman4.github.io/_data/comments/')
-      .then(res => res.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
-        const links = [...doc.querySelectorAll("a")].filter(a => a.href.endsWith(".json"));
-
-        links.forEach(link => {
-          fetch(link.href)
-            .then(res => res.json())
-            .then(comment => {
-              const li = document.createElement("li");
-              li.innerHTML = `<strong>${comment.name || "Anonymous"}:</strong><br>${comment.message}`;
-              document.getElementById("commentsList").appendChild(li);
-            });
+// Load comments using GitHub API to avoid CORS
+fetch("https://api.github.com/repos/hmwahlman4/haydenwahlman.github.io/contents/_data/comments")
+  .then(response => response.json())
+  .then(files => {
+    const commentFiles = files.filter(file => file.name.endsWith(".json"));
+    commentFiles.forEach(file => {
+      fetch(file.download_url)
+        .then(res => res.json())
+        .then(comment => {
+          const li = document.createElement("li");
+          li.innerHTML = `<strong>${comment.name || "Anonymous"}:</strong><br>${comment.message}`;
+          document.getElementById("commentsList").appendChild(li);
         });
-      })
-      .catch(err => console.error("Couldn't load comments:", err));
+    });
+  })
+  .catch(err => console.error("Couldn't load comments:", err));
+
   </script>
 
 </body>
