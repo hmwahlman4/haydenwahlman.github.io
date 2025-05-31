@@ -49,7 +49,7 @@
       // Add current date to the fields
       fields["date"] = new Date().toISOString();
 
-      fetch("https://gracewahlman-staticman.herokuapp.com/v3/entry/github/hmwahlman4/hmwahlman4.github.io/main/comments", {
+      fetch("https://gracewahlman-staticman.herokuapp.com/v3/entry/github/hmwahlman4/haydenwahlman.github.io/main/comments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ fields })
@@ -71,7 +71,7 @@
     });
 
     // Load comments using GitHub API to avoid CORS
-    fetch("https://api.github.com/repos/hmwahlman4/hmwahlman4.github.io/contents/_data/comments")
+    fetch("https://api.github.com/repos/hmwahlman4/haydenwahlman.github.io/contents/_data/comments")
       .then(response => response.json())
       .then(files => {
         const commentFiles = files
@@ -84,16 +84,17 @@
             .then(comment => {
               const li = document.createElement("li");
               let timestamp = "";
-              if (comment.date) {
-                const date = new Date(comment.date);
+              if (comment.fields && comment.fields.date) {
+                const date = new Date(comment.fields.date);
                 if (!isNaN(date)) {
                   timestamp = date.toLocaleString();
                 }
               }
+              const c = comment.fields || comment;
               li.innerHTML = `
-                <strong>${comment.name || "Anonymous"}</strong>
+                <strong>${c.name || "Anonymous"}</strong>
                 <em>${timestamp}</em><br>
-                ${comment.message}`;
+                ${c.message}`;
               document.getElementById("commentsList").appendChild(li);
             });
         });
