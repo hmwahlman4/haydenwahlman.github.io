@@ -12,4 +12,4 @@ comments:
       options:
         format: timestamp
 
-  filename: "comment-{@timestamp}"
+  filename: "comment-{@timestamp}.json"
