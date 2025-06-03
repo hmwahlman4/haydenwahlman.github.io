@@ -43,16 +43,16 @@
 
       const formData = new FormData(form);
       const fields = {};
-
       formData.forEach((val, key) => { fields[key] = val; });
-
-      // Add current date to the fields
       fields["date"] = new Date().toISOString();
 
-      fetch("https://gracewahlman-staticman.herokuapp.com/v3/entry/github/hmwahlman4/haydenwahlman.github.io/main/comments", {
+      fetch("https://gracewahlman-staticman.herokuapp.com/v3/entry/github/hmwahlman4/haydenwahlman.com/comments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fields })
+        body: JSON.stringify({
+          fields,
+          options: { slug: "test-post" }
+        })
       })
       .then(res => res.json())
       .then(data => {
@@ -70,13 +70,13 @@
       });
     });
 
-    // Load comments using GitHub API to avoid CORS
-    fetch("https://api.github.com/repos/hmwahlman4/haydenwahlman.github.io/contents/_data/comments")
+    // Load comments for test-post
+    fetch("https://api.github.com/repos/hmwahlman4/haydenwahlman.com/contents/_data/comments/test-post")
       .then(response => response.json())
       .then(files => {
         const commentFiles = files
           .filter(file => file.name.endsWith(".json"))
-          .reverse(); // Newest first
+          .reverse();
 
         commentFiles.forEach(file => {
           fetch(file.download_url)
