@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Leave a Comment</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 2rem; }
@@ -43,10 +43,17 @@
 
       const formData = new FormData(form);
       const fields = {};
-      formData.forEach((val, key) => { fields[key] = val; });
+
+      formData.forEach((val, key) => {
+        const match = key.match(/^fields\[(.+)\]$/);
+        if (match) {
+          fields[match[1]] = val;
+        }
+      });
+
       fields["date"] = new Date().toISOString();
 
-      fetch("https://gracewahlman-staticman.herokuapp.com/v3/entry/github/hmwahlman4/haydenwahlman.com/comments", {
+      fetch("https://my-unique-staticman-app-7bd20b64c27a.herokuapp.com/v3/entry/github/hmwahlman4/haydenwahlman.github.io/comments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -71,7 +78,7 @@
     });
 
     // Load comments for test-post
-    fetch("https://api.github.com/repos/hmwahlman4/haydenwahlman.com/contents/_data/comments/test-post")
+    fetch("https://api.github.com/repos/hmwahlman4/haydenwahlman.github.io/contents/_data/comments/test-post")
       .then(response => response.json())
       .then(files => {
         const commentFiles = files
